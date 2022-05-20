@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\diaz.eduard\\Desktop\\APIPacientes\\APIPacientes\\APIPacientes.csproj": {}
+    "C:\\Users\\diaz.eduard\\Desktop\\pruebaback\\pruebabackend\\APIPacientes\\APIPacientes\\APIPacientes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\diaz.eduard\\Desktop\\APIPacientes\\APIPacientes\\APIPacientes.csproj": {
+    "C:\\Users\\diaz.eduard\\Desktop\\pruebaback\\pruebabackend\\APIPacientes\\APIPacientes\\APIPacientes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diaz.eduard\\Desktop\\APIPacientes\\APIPacientes\\APIPacientes.csproj",
+        "projectUniqueName": "C:\\Users\\diaz.eduard\\Desktop\\pruebaback\\pruebabackend\\APIPacientes\\APIPacientes\\APIPacientes.csproj",
         "projectName": "APIPacientes",
-        "projectPath": "C:\\Users\\diaz.eduard\\Desktop\\APIPacientes\\APIPacientes\\APIPacientes.csproj",
+        "projectPath": "C:\\Users\\diaz.eduard\\Desktop\\pruebaback\\pruebabackend\\APIPacientes\\APIPacientes\\APIPacientes.csproj",
         "packagesPath": "C:\\Users\\diaz.eduard\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diaz.eduard\\Desktop\\APIPacientes\\APIPacientes\\obj\\",
+        "outputPath": "C:\\Users\\diaz.eduard\\Desktop\\pruebaback\\pruebabackend\\APIPacientes\\APIPacientes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

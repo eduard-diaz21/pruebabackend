@@ -14,35 +14,35 @@ namespace APIPacientes.Controllers
     [ApiController]
     public class PacienteController : ControllerBase
     {
-        // GET: api/<PacienteController>
+        // GET: LISTAR PACIENTES
         [HttpGet]
         public List<Paciente> Get()
         {
             return PacienteRepository.listarPacientes();
         }
 
-        // GET api/<PacienteController>/5
+        // GET LISTAR PACIENTE POR ID
         [HttpGet("{id}")]
         public Paciente Get(int id)
         {
             return PacienteRepository.listarPacienteId(id);
         }
 
-        // POST api/<PacienteController>
+        // POST CREAR PACIENTE
         [HttpPost]
         public bool Post([FromBody] Paciente _paciente)
         {
             return PacienteRepository.crearPaciente(_paciente);
         }
 
-        // PUT api/<PacienteController>/5
+        // PUT ACTUALIZAR PACIENTE
         [HttpPut]
         public bool Put([FromBody] Paciente _paciente)
         {
             return PacienteRepository.actualizarPaciente(_paciente);
         }
 
-        // DELETE api/<PacienteController>/5
+        // DELETE ELIMINAR PACIENTE
         [HttpDelete("{id}")]
         public bool Delete(int id)
         {
