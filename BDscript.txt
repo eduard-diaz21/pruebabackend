@@ -1,0 +1,143 @@
+CREATE DATABASE PACIENTE
+
+USE PACIENTE
+
+
+-----------------------------------------------------------------------------
+<--------------- CREACIÓN DE TABLA ------------------------>
+
+CREATE TABLE Paciente(
+IdPaciente int primary key identity(1,1),
+nombreCompletoPaciente varchar(100),
+apellidoPaciente varchar(100),
+sexoPaciente varchar(50),
+edadPaciente int,
+correoPaciente varchar(100),
+tipoDocumentoPaciente varchar(50),
+documentoPaciente varchar(100),
+direccionPaciente varchar(100)
+)
+
+SELECT * FROM Paciente
+
+
+------------------------------------------------------------------------------
+<------------ INSERT DATOS ------------------>
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Dairo','Moreno','Masculino',20,'dmoreno@correo.com','CC','1019819212','Diag 20 # 13-12')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Luisa','Moreno','Femenino',40,'lmoreno@correo.com','CC','1019883712','Calle 20 # 113-12')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Ronald','Rojas','Masculino',30,'rrojas@correo.com','CC','1023883232','Calle 220 # 13-34')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Dora','Rojas','Femenino',20,'drojas@correo.com','CC','102398762','Calle 10 # 132-34')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Oscar','Muños','Masculino',25,'omunos@correo.com','CC','102055672','Carrera 104 # 132-34')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Laura','Muños','Femenino',25,'lmunos@correo.com','CC','102087333','Carrera 14 # 132-34')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Pablo','Sotelo','Masculino',25,'psotelo@correo.com','CC','102234673','Carrera 144 # 2-34')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Maria','Sotelo','Femenino',50,'msotelo@correo.com','CC','102209987','Carrera 44 # 2-34')
+
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values('Roberto','Osorio','Masculino',18,'rosorio@correo.com','TI','109809117','Trasv 44 # 2-34')
+
+
+
+-----------------------------------------------------
+
+PROCEDIMINETOS ALMACENADOS
+
+<------------ LISTAR TODOS LOS PACIENTES ------->
+CREATE PROCEDURE SP_ListarPacientes
+as
+begin
+SELECT * FROM Paciente
+end
+
+EXEC SP_ListarPacientes
+
+
+<------------ OBTENER PACIENTE POR ID ------------>
+CREATE PROCEDURE SP_ListarPacientePorId (@idPaciente int)
+as
+begin
+SELECT * FROM Paciente
+WHERE IdPaciente = @idPaciente
+end
+
+exec SP_ListarPacientePorId 4
+
+
+<-------------- CREAR PACIENTE ------------------->
+CREATE PROCEDURE SP_CrearPaciente 
+(
+@nombreCompletoPaciente varchar(100),
+@apellidoPaciente varchar(100),
+@sexoPaciente varchar(50),
+@edadPaciente int,
+@correoPaciente varchar(100),
+@tipoDocumentoPaciente varchar(50),
+@documentoPaciente varchar(100),
+@direccionPaciente varchar(100)
+)
+as
+begin
+INSERT INTO Paciente (nombreCompletoPaciente,apellidoPaciente,sexoPaciente,edadPaciente,correoPaciente,tipoDocumentoPaciente,documentoPaciente,direccionPaciente)
+values(@nombreCompletoPaciente,@apellidoPaciente,@sexoPaciente,@edadPaciente,@correoPaciente,@tipoDocumentoPaciente,@documentoPaciente,@direccionPaciente)
+end
+
+exec SP_CrearPaciente 'Fabian','Lopez','Masculino',17,'flopez@correo.com','TI','108099122','Calle 4 # 122-34'
+
+
+
+<----------------- ELIMINAR PACIENTE ---------------->
+CREATE PROCEDURE SP_BorrarPaciente (@idPaciente int)
+as
+begin
+DELETE FROM Paciente
+WHERE IdPaciente = @idPaciente
+end
+
+exec SP_BorrarPaciente 11
+
+
+
+<------------------  ACTUALIZAR PACIENTE --------------->
+CREATE PROCEDURE SP_ActualizarPaciente
+(
+@idPaciente int,
+@nombreCompletoPaciente varchar(100),
+@apellidoPaciente varchar(100),
+@sexoPaciente varchar(50),
+@edadPaciente int,
+@correoPaciente varchar(100),
+@tipoDocumentoPaciente varchar(50),
+@documentoPaciente varchar(100),
+@direccionPaciente varchar(100)
+)
+as
+
+begin
+UPDATE Paciente set
+nombreCompletoPaciente = @nombreCompletoPaciente,
+apellidoPaciente = @apellidoPaciente,
+sexoPaciente = @sexoPaciente,
+edadPaciente = @edadPaciente,
+correoPaciente = @correoPaciente,
+tipoDocumentoPaciente = @tipoDocumentoPaciente,
+documentoPaciente = @documentoPaciente,
+direccionPaciente = @direccionPaciente
+WHERE IdPaciente = @idPaciente
+end
+
+exec SP_ActualizarPaciente 3,'Fabian','Lopez','Masculino',17,'flopez@correo.com','TI','108099122','Calle 4 # 122-34'
